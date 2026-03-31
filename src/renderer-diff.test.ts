@@ -184,6 +184,7 @@ describe("emitDiff", () => {
       { row: 0, col: 1, cell: { char: "b", style: "normal", width: 1 } },
     ]);
     // Should have one cursor move for the first cell, then "ab" consecutive
+    // eslint-disable-next-line no-control-regex
     const moves = result.match(/\x1b\[\d+;\d+H/g) ?? [];
     expect(moves).toHaveLength(1);
   });
@@ -194,6 +195,7 @@ describe("emitDiff", () => {
       { row: 0, col: 2, cell: { char: "x", style: "normal", width: 1 } },
     ]);
     // After writing 🌕 (width 2) at col 0, cursor is at col 2 — no extra move needed
+    // eslint-disable-next-line no-control-regex
     const moves = result.match(/\x1b\[\d+;\d+H/g) ?? [];
     expect(moves).toHaveLength(1);
   });

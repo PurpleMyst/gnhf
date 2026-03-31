@@ -9,10 +9,17 @@ This is iteration ${params.n} of an ongoing loop to fully accomplish the objecti
 ## Instructions
 
 1. Read .gnhf/runs/${params.runId}/notes.md first to understand what has been done in previous iterations.
-2. Focus on one smallest logical unit of work that's individually testable and would make incremental progress towards the objective. Do NOT try to do everything at once.
-3. Run build/tests/linters/formatters if available to validate your work.
+2. Focus on the next smallest logical unit of work that's individually testable and would make incremental progress towards the objective - that's the scope of this iteration.
+3. If you made code changes, run build/tests/linters/formatters if available to validate your work.
 4. Do NOT make any git commits. Commits will be handled automatically by the gnhf orchestrator.
 5. When you are done, respond with a JSON object according to the provided schema.
+
+## Output
+
+- success: whether you were able to complete your iteration. set to false only if something made it impossible for you to do your work
+- summary: a concise one-sentence summary of the accomplishment in this iteration
+- key_changes_made: an array of descriptions for key changes you made. don't group this by file - group by logical units of work. don't describe activities - describe material outcomes
+- key_learnings: an array of new learnings that were surprising and weren't captured by previous notes
 
 ## Objective
 

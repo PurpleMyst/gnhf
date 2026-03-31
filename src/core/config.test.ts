@@ -26,7 +26,7 @@ describe("loadConfig", () => {
     const config = loadConfig();
     expect(config).toEqual({
       agent: "claude",
-      maxConsecutiveFailures: 5,
+      maxConsecutiveFailures: 3,
     });
   });
 
@@ -70,7 +70,7 @@ describe("loadConfig", () => {
     const config = loadConfig();
     expect(config).toEqual({
       agent: "claude",
-      maxConsecutiveFailures: 5,
+      maxConsecutiveFailures: 3,
     });
   });
 
@@ -82,7 +82,7 @@ describe("loadConfig", () => {
     const config = loadConfig();
     expect(config).toEqual({
       agent: "claude",
-      maxConsecutiveFailures: 5,
+      maxConsecutiveFailures: 3,
     });
   });
 });

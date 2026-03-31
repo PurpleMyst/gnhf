@@ -1,4 +1,6 @@
-<h1 align="center">gnhf</h1>
+<p align="center">Before I go to bed, I tell my agents:</p>
+<h2 align="center">good night, have fun</h2>
+
 <p align="center">
   <a href="https://www.npmjs.com/package/gnhf"
     ><img
@@ -33,14 +35,11 @@
   /></a>
 </p>
 
-<h3 align="center">Before I go to bed, I tell my agents:</h3>
-<h3 align="center">good night, have fun</h3>
-
 <p align="center">
   <img src="docs/splash.png" alt="gnhf — Good Night, Have Fun" width="720">
 </p>
 
-gnhf is an orchestrator that keeps your agents running while you sleep — it starts a [ralph loop](https://ghuntley.com/ralph/) where each iteration makes one small, committed, documented change towards an objective.
+gnhf is a [ralph loop](https://ghuntley.com/ralph/) orchestrator that keeps your agents running while you sleep — each iteration makes one small, committed, documented change towards an objective.
 You wake up to a branch full of clean work and a log of everything that happened.
 
 - **Dead simple** — one command starts an autonomous loop that runs until you Ctrl+C
@@ -109,7 +108,7 @@ npm link
                    │   ┌──────────┘                        │
                    ▼   ▼                                   │
               ┌────────────┐    yes   ┌──────────┐         │
-              │ 5 consec.  ├─────────►│  abort   │         │
+              │ 3 consec.  ├─────────►│  abort   │         │
               │ failures?  │          └──────────┘         │
               └─────┬──────┘                               │
                  no │                                      │
@@ -144,7 +143,7 @@ Config lives at `~/.gnhf/config.yml`:
 agent: claude
 
 # Abort after this many consecutive failures
-maxConsecutiveFailures: 5
+maxConsecutiveFailures: 3
 ```
 
 CLI flags override config file values.

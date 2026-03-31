@@ -10,7 +10,7 @@ export interface Config {
 
 const DEFAULT_CONFIG: Config = {
   agent: "claude",
-  maxConsecutiveFailures: 5,
+  maxConsecutiveFailures: 3,
 };
 
 export function loadConfig(overrides?: Partial<Config>): Config {

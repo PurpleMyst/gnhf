@@ -1,29 +1,31 @@
 export function wordWrap(text: string, width: number, maxLines?: number): string[] {
   if (!text) return [];
 
-  const words = text.split(/\s+/);
   const lines: string[] = [];
-  let current = "";
 
-  for (const word of words) {
-    if (word.length > width) {
-      // Flush current line
-      if (current) { lines.push(current); current = ""; }
-      // Break long word into chunks
-      for (let i = 0; i < word.length; i += width) {
-        lines.push(word.slice(i, i + width));
+  for (const paragraph of text.split("\n")) {
+    const words = paragraph.split(/\s+/).filter(Boolean);
+    if (words.length === 0) { lines.push(""); continue; }
+    let current = "";
+
+    for (const word of words) {
+      if (word.length > width) {
+        if (current) { lines.push(current); current = ""; }
+        for (let i = 0; i < word.length; i += width) {
+          lines.push(word.slice(i, i + width));
+        }
+        continue;
       }
-      continue;
-    }
 
-    if (current && current.length + 1 + word.length > width) {
-      lines.push(current);
-      current = word;
-    } else {
-      current = current ? current + " " + word : word;
+      if (current && current.length + 1 + word.length > width) {
+        lines.push(current);
+        current = word;
+      } else {
+        current = current ? current + " " + word : word;
+      }
     }
+    if (current) lines.push(current);
   }
-  if (current) lines.push(current);
 
   if (maxLines && lines.length > maxLines) {
     const capped = lines.slice(0, maxLines);

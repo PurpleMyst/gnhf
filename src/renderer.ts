@@ -29,20 +29,9 @@ const MAX_MSG_LINE_LEN = 64;
 
 // ── ANSI helpers ─────────────────────────────────────────────
 
-const RESET = "\x1b[0m";
-const BOLD = "\x1b[1m";
-const DIM = "\x1b[2m";
-
 export function stripAnsi(s: string): string {
+  // eslint-disable-next-line no-control-regex
   return s.replace(/\x1b\[[0-9;]*m/g, "");
-}
-
-function dim(s: string): string {
-  return s ? `${DIM}${s}${RESET}` : "";
-}
-
-function bold(s: string): string {
-  return `${BOLD}${s}${RESET}`;
 }
 
 // ── Cell-based render functions ──────────────────────────────
