@@ -8,9 +8,13 @@ vi.mock("./git.js", () => ({
   resetHard: vi.fn(),
 }));
 
-vi.mock("./run.js", () => ({
-  appendNotes: vi.fn(),
-}));
+vi.mock("./run.js", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("./run.js")>();
+  return {
+    ...actual,
+    appendNotes: vi.fn(),
+  };
+});
 
 vi.mock("./debug-log.js", () => ({
   appendDebugLog: vi.fn(),
